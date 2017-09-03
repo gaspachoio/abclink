@@ -1,0 +1,7 @@
+en:
+  inline_forms:
+    general:
+      application_title: bankortografiko
+    devise:
+      title_for_devise: bankortografiko
+      welcome: Welcome to bankortografiko!
