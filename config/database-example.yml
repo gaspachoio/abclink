@@ -1,8 +1,8 @@
 development:
   adapter: mysql2
   database: bankortografiko_dev
-  username: bankortografiko
-  password: bankortografiko
+  username: root
+  password: mersmaoc
 
 production:
   adapter: mysql2

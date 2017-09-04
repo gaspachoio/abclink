@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  root :to => 'words#index'
+
+  get 'palabra/:lexeme', to: 'api/api#palabra'
+
+  resources :words do
+  post 'revert', :on => :member
+end
+
+  resources :variants do
+  post 'revert', :on => :member
+end
+
   resources :inline_forms_translations do
   post 'revert', :on => :member
 end
