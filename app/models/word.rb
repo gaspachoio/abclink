@@ -1,6 +1,6 @@
 class Word < ActiveRecord::Base
   attr_reader :per_page
-  @per_page = 7
+  @per_page = 15
   attr_writer :inline_forms_attribute_list
   has_paper_trail
 
@@ -13,10 +13,10 @@ class Word < ActiveRecord::Base
 
   def inline_forms_attribute_list
     @inline_forms_attribute_list ||= [
-      [ :name , "name", :text_field ], 
-      [ :description , "description", :text_area ], 
-      [ :pos , "pos", :text_field ], 
-      [ :variants , "variants", :associated ], 
+      [ :name , "name", :text_field ],
+      [ :description , "description", :text_area ],
+      [ :pos , "pos", :text_field ],
+      [ :variants , "variants", :associated ],
     ]
   end
 
