@@ -181,6 +181,7 @@ GEM
     paper_trail (7.1.2)
       activerecord (>= 4.0, < 5.2)
       request_store (~> 1.1)
+    pg (0.20.0)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -314,6 +315,7 @@ DEPENDENCIES
   mini_magick
   mysql2
   paper_trail
+  pg (= 0.20.0)
   rails (~> 5.0.2)
   rails-i18n
   rake

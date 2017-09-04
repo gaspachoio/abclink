@@ -41,3 +41,6 @@ group :development do
   gem 'rspec'
   gem 'listen'
 end
+group :production do
+  gem 'pg', '0.20.0'
+end
