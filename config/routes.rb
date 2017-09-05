@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root :to => 'words#index'
+  get 'search', to: 'search_engine#search'
+
+  root :to => 'search_engine#search'
 
   get 'palabra/:lexeme', to: 'api/api#palabra'
 

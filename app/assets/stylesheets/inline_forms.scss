@@ -5,6 +5,15 @@
 @import 'jquery.ui.all';
 @import 'foundation_and_overrides';
 
+#kabes {
+  margin-top: 6rem;
+  padding: 4rem;
+}
+
+#kabes h1 {
+  padding: 2rem;
+}
+
 .contain-to-grid {
   background-color: $body-bg !important;
 }

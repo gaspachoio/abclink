@@ -30,6 +30,8 @@ gem 'compass-rails'
 gem 'foundation-icons-sass-rails'
 gem 'therubyracer'
 gem 'uglifier'
+gem 'google-api-client'
+gem 'dotenv-rails'
 group :development do
   gem 'yaml_db'
   gem 'seed_dump', git: 'https://github.com/acesuares/seed_dump.git'

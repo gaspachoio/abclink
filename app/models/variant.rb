@@ -32,4 +32,20 @@ class Variant < ActiveRecord::Base
    super(options)
  end
 
+ def self.get_all_variants_by(lexeme)
+   all_variants = "#{lexeme}"
+   variants = []
+
+   variant = self.find_by(lexeme: lexeme)
+   variants = variant.word.variants if variant
+
+   if variants.count >= 2
+     variants.each do |variant|
+       all_variants += " OR #{variant.lexeme}" unless all_variants.include? variant.lexeme
+     end
+   end
+
+   return all_variants
+ end
+
 end
