@@ -12,12 +12,14 @@
   <div class="medium-8 columns">
     <% unless @results.nil? %>
       <p><%= @results.search_information.total_results %> resultado. <%= @q_with_variants %></p>
-      <% @results.items.each do |item| %>
-        <div class="blog-post">
-          <a href="<%= item.link %>"><h3><%= raw item.html_title %></h3></a>
-          <p><%= item.link %></p>
-          <p><%= raw item.html_snippet %></p>
-        </div>
+      <% unless @results.items.nil? %>
+        <% @results.items.each do |item| %>
+          <div class="blog-post">
+            <a href="<%= item.link %>"><h3><%= raw item.html_title %></h3></a>
+            <p><%= item.link %></p>
+            <p><%= raw item.html_snippet %></p>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
