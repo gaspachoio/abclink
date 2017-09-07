@@ -9,8 +9,8 @@ class SearchEngineController < ActionController::Base
       words = @q.split
 
       @q_with_variants = ''
-      words.each do |word|
-        @q_with_variants += "[#{Variant::get_all_variants_by(word)}]"
+      words.each_with_index do |word, index|
+        @q_with_variants += "[#{Variant::get_all_variants_by(word)}] "
       end
       @q_with_variants += '[esaki OR aki OR esei] -la -los -las'
 
