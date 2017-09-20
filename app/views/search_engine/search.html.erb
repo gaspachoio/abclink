@@ -1,64 +1,42 @@
-<div class="row" id="content">
-
-  <div id="kabes" class="medium-11 columns text-center">
-      <h1>Motor di búskeda inteligente</h1>
-      <%= form_tag("/search", method: "get") do %>
-      <%= text_field_tag(:q, @q) %>
-      <%= submit_tag("Search") %>
-
-      <% end %>
-  </div>
-
-  <div class="medium-8 columns">
-    <% unless @results.nil? %>
-      <p><%= @results.search_information.total_results %> resultado. <%= @q_with_variants %></p>
-      <% unless @results.items.nil? %>
-        <% @results.items.each do |item| %>
-          <div class="blog-post">
-            <a href="<%= item.link %>"><h3><%= raw item.html_title %></h3></a>
-            <p><%= item.link %></p>
-            <p><%= raw item.html_snippet %></p>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="medium-3 columns" data-sticky-container>
-    <!--
-    <div class="sticky" data-sticky data-anchor="content">
-      <h4>Categories</h4>
-      <ul>
-        <li><a href="#">Skyler</a></li>
-        <li><a href="#">Jesse</a></li>
-        <li><a href="#">Mike</a></li>
-        <li><a href="#">Holly</a></li>
-      </ul>
-
-      <h4>Authors</h4>
-      <ul>
-        <li><a href="#">Skyler</a></li>
-        <li><a href="#">Jesse</a></li>
-        <li><a href="#">Mike</a></li>
-        <li><a href="#">Holly</a></li>
-      </ul>
+<div class="col-md-6 col-md-offset-3" style="margin-top: 8%;">
+  <div class="row">
+    <div id="logo" class="text-center">
+      <h1>Iguana</h1><p>Búskeda inteligente di informashon na Papiamentu</p>
     </div>
-  -->
+    <%= form_tag("/search", method: "get") do %>
+      <div class="form-group">
+        <div class="input-group">
+          <input id="1" class="form-control" value="<%= @q %>" type="text" name="q" placeholder="Buska..." required/>
+          <span class="input-group-btn">
+            <button class="btn btn-success" type="submit">
+              <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Buska
+            </button>
+          </span>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
-<div class="row column">
-  <!--
-  <ul class="pagination" role="navigation" aria-label="Pagination">
-    <li class="disabled">Previous</li>
-    <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
-    <li><a href="#" aria-label="Page 2">2</a></li>
-    <li><a href="#" aria-label="Page 3">3</a></li>
-    <li><a href="#" aria-label="Page 4">4</a></li>
-    <li class="ellipsis"></li>
-    <li><a href="#" aria-label="Page 12">12</a></li>
-    <li><a href="#" aria-label="Page 13">13</a></li>
-    <li><a href="#" aria-label="Next page">Next</a></li>
-  </ul>
--->
+<div class="col-md-12 col-md-offset-1" style="margin-top: 4%;">
+<% unless @results.nil? %>
+  <p><%= @results.search_information.total_results %> resultado. <%= @q_with_variants %></p>
+  <% unless @results.items.nil? %>
+    <% @results.items.each do |item| %>
+        <div>
+          <h4><a href="<%= item.link %>"><%= raw item.html_title %></a></h4>
+          <p><%= item.link %></p>
+          <p><%= raw item.html_snippet %></p>
+        </div>
+      <% end %>
+      <ul class="pagination">
+        <!-- <li class="disabled"><a href="#">«</a></li> -->
+        <% 0.upto(@results.search_information.total_results / 10) do |i| %>
+          <li class="<%= 'active' if @start == (i * 10) + 1 %>"><a href="/search?utf8=✓&q=<%= @q %>&start=<%= (i * 10) + 1 %>"><%= i + 1 %></a></li>
+          <% break if i >= 10 %>
+        <% end %>
+        <!-- <li><a href="/search?utf8=✓&q=<%= @q %>&start=<%= @start + 10 %>">»</a></li> -->
+      </ul>
+    <% end %>
+  <% end %>
 </div>

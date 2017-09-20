@@ -1,37 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-  </head>
-  <body>
+    <%= stylesheet_link_tag    'bootstrap_application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
 
-    <!-- Start Top Bar -->
-    <!--
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li class="menu-text">Yeti Agency</li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
-          <li><a href="#">Four</a></li>
-        </ul>
-      </div>
-    </div>
-    -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
+</head>
+<body>
+  <%= render 'layouts/nav' %>
+  <div class="container">
     <%= yield %>
-
-  </body>
+    <%= render 'layouts/footer' %>
+  </div>
+</body>
 </html>

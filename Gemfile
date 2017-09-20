@@ -32,6 +32,8 @@ gem 'therubyracer'
 gem 'uglifier'
 gem 'google-api-client'
 gem 'dotenv-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+
 group :development do
   gem 'yaml_db'
   gem 'seed_dump', git: 'https://github.com/acesuares/seed_dump.git'

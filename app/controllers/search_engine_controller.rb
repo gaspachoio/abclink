@@ -3,7 +3,9 @@ class SearchEngineController < ActionController::Base
 
   def search
     @q = ''
+    @start = 1
     @q = params[:q] unless params[:q].nil?
+    @start = params[:start].to_i unless params[:start].nil?
 
     unless @q.empty?
       words = @q.split
@@ -18,7 +20,7 @@ class SearchEngineController < ActionController::Base
       search_client = search::CustomsearchService.new
       search_client.key = ENV["GOOGLE_SEARCH_CLIENT_KEY"]
 
-      @results = search_client.list_cses(@q_with_variants, {cx: ENV["GOOGLE_SEARCH_CLIENT_CX"]})
+      @results = search_client.list_cses(@q_with_variants, {cx: ENV["GOOGLE_SEARCH_CLIENT_CX"], start: @start})
 
     else
       @results = nil
