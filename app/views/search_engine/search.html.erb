@@ -39,9 +39,43 @@
   </div>
 </div>
 
-<div class="col-md-12 col-md-offset-1" style="margin-top: 4%;">
+<div class="col-md-10 col-md-offset-1" style="margin-top: 4%;">
+  <div id="variantenan-panel" class="collapse filter-panel text-left">
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <% @words.each do |word| %>
+              <div class="col-md-4 col-md-offset-1">
+            				<div class="panel panel-primary">
+            					<div class="panel-heading">
+            						<h3 class="panel-title">Palabra: <%= word %></h3>
+            					</div>
+                      <table class="table table-hover" id="dev-table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Leksema</th>
+                            <th>Ortografia</th>
+                          </tr>
+                        </thead>
+              						<tbody>
+                            <% variants = Variant.find_by(lexeme: word).nil? ? [] : Variant.find_by(lexeme: word).word.variants %>
+                            <% variants.each do |variant| %>
+              							  <tr>
+              								  <td><%= variant.id %></td>
+              								  <td><%= variant.lexeme %></td>
+              								  <td><%= variant.orthographic_type %></td>
+              						 	 </tr>
+                            <% end %>
+              						</tbody>
+              					</table>
+            				</div>
+            		</div>
+            <% end %>
+          </div>
+      </div>
+  </div>
 <% unless @results.nil? %>
-  <p><%= @results.search_information.total_results %> resultado. <%= @q_with_variants %></p>
+  <p><%= @results.search_information.total_results %> resultado. <a data-toggle="collapse" href="#variantenan-panel">Klik akinan</a> <span class="glyphicon glyphicon-chevron-down"></span> pa wak e lista di variante ortográfiko usá den bo búskeda</p>
   <% unless @results.items.nil? %>
     <% @results.items.each do |item| %>
         <div class="resultado">

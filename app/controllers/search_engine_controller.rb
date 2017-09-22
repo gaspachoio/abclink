@@ -7,12 +7,12 @@ class SearchEngineController < ActionController::Base
     @unikamente_pap = params[:unikamente_pap].nil? ? '[esaki OR aki OR esei]' : params[:unikamente_pap]
     @no_spano = params[:no_spano].nil? ? '-la -los -las' : params[:no_spano]
     @start = params[:start].nil? ? 1 : params[:start].to_i
+    @words = @q.split
 
     return @results if @q.empty?
-    
-    words = @q.split
+
     @q_with_variants = ''
-    words.each_with_index do |word, index|
+    @words.each do |word|
       @q_with_variants += "[#{Variant::get_all_variants_by(word)}] "
     end
     @q_with_variants += "#{@unikamente_pap} #{@no_spano}"
