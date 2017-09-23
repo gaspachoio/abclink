@@ -13,6 +13,7 @@ class Ability
       can :access, :all
     else
       # put restrictions for other users here
+      can :slug, :pages
     end
   end
 end

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :pages do
+  post 'revert', :on => :member
+end
+
   get 'search', to: 'search_engine#search'
 
   root :to => 'search_engine#search'
@@ -38,6 +43,9 @@ end
   resources :users do
     post 'revert', :on => :member
 end
+
+get ':slug', to: 'pages#slug'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

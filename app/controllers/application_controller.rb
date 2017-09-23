@@ -12,7 +12,7 @@ class ApplicationController < InlineFormsApplicationController
     redirect_to new_user_session_path, :alert => exception.message
   end
 
-  ActionView::CompiledTemplates::MODEL_TABS = %w(words )
+  ActionView::CompiledTemplates::MODEL_TABS = %w(pages words)
 
   # Uncomment next line if you want I18n (based on subdomain)
   # before_action :set_locale
