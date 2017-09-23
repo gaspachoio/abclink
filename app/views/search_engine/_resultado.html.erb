@@ -1,0 +1,20 @@
+<% unless @results.nil? %>
+  <p><%= @results.search_information.total_results %> resultado. <a data-toggle="collapse" href="#variantenan-panel">Klik akinan</a> <span class="glyphicon glyphicon-chevron-down"></span> pa wak e lista di variante ortográfiko usá den bo búskeda</p>
+  <% unless @results.items.nil? %>
+    <% @results.items.each do |item| %>
+      <div class="resultado">
+        <h4><a href="<%= item.link %>"><%= raw item.html_title %></a></h4>
+        <p><%= item.link %></p>
+        <p><%= raw item.html_snippet %></p>
+      </div>
+    <% end %>
+    <ul class="pagination">
+      <!-- <li class="disabled"><a href="#">«</a></li> -->
+      <% 0.upto(@results.search_information.total_results / 10) do |i| %>
+        <li class="<%= 'active' if @start == (i * 10) + 1 %>"><a href="/search?utf8=✓&q=<%= @q %>&start=<%= (i * 10) + 1 %>"><%= i + 1 %></a></li>
+        <% break if i >= 10 %>
+      <% end %>
+      <!-- <li><a href="/search?utf8=✓&q=<%= @q %>&start=<%= @start + 10 %>">»</a></li> -->
+    </ul>
+  <% end %>
+<% end %>

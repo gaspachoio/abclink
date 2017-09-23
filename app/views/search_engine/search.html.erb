@@ -14,84 +14,12 @@
           </span>
         </div>
       </div>
-      <div class="row text-center">
-          <div id="filter-panel" class="collapse filter-panel text-left">
-              <div class="panel panel-default">
-                  <div class="panel-body">
-
-                      <div class="form-group">
-                          <label class="filter-col" style="margin-right:0;" for="pref-search"><span data-toggle="tooltip" data-placement="top" title="E kódigo aki bou su ophetivo ta pa buska informashon únikamente na Papiamentu. E kódigo aki a wòrdu traha a base di e instrukshonnan di Google pa traha un búskeda avansá. E kódigo aki ta indiká pa buska kualke informashon, teksto òf kontenido kaminda tin algun di e palabra 'esaki', 'aki' òf 'esei'. Esakinan ta hopi popular den kualke teksto na Papiamentu. Si bo ke traha bo búskeda na kualke idioma, djis eliminá e kódigo promé ku klik riba e boton 'Buska'." class="glyphicon glyphicon-info-sign"></span> Buska informashon únikamente na Papiamentu:</label>
-                          <input value="<%= @unikamente_pap %>" name="unikamente_pap" type="text" class="form-control input-sm" id="pref-search">
-                      </div><!-- form group [search] -->
-                      <div class="form-group">
-                          <label class="filter-col" style="margin-right:0;" for="pref-search"><span data-toggle="tooltip" data-placement="top" title="E kódigo aki bou su ophetivo ta pa eliminá for di nos resultadonan kualke teksto na Spaño. E kódigo aki a wòrdu traha a base di e instrukshonnan di Google pa traha un búskeda avansá. E kódigo aki ta indiká pa saka for di nos resultadonan kualke informashon, teksto òf kontenido kaminda tin algun di e palabra 'la', 'las' òf 'los'. Esakinan ta hopi karakterístiko di e tekstonan na Spaño. " class="glyphicon glyphicon-info-sign"></span> Eliminá informashon na Spaño:</label>
-                          <input value="<%= @no_spano %>" name="no_spano" type="text" class="form-control input-sm" id="pref-search">
-                      </div><!-- form group [search] -->
-                  </div>
-              </div>
-          </div>
-          <a data-toggle="collapse" href="#filter-panel">
-              Búskeda avansá <span class="glyphicon glyphicon-chevron-down"></span>
-          </a>
-        </div>
-
+      <%= render 'buskeda_avansa' %>
     <% end %>
   </div>
 </div>
 
 <div class="col-md-10 col-md-offset-1" style="margin-top: 4%;">
-  <div id="variantenan-panel" class="collapse filter-panel text-left">
-      <div class="panel panel-default">
-          <div class="panel-body">
-            <% @words.each do |word| %>
-              <div class="col-md-4 col-md-offset-1">
-            				<div class="panel panel-primary">
-            					<div class="panel-heading">
-            						<h3 class="panel-title">Palabra: <%= word %></h3>
-            					</div>
-                      <table class="table table-hover" id="dev-table">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Leksema</th>
-                            <th>Ortografia</th>
-                          </tr>
-                        </thead>
-              						<tbody>
-                            <% variants = Variant.find_by(lexeme: word).nil? ? [] : Variant.find_by(lexeme: word).word.variants %>
-                            <% variants.each do |variant| %>
-              							  <tr>
-              								  <td><%= variant.id %></td>
-              								  <td><%= variant.lexeme %></td>
-              								  <td><%= variant.orthographic_type %></td>
-              						 	 </tr>
-                            <% end %>
-              						</tbody>
-              					</table>
-            				</div>
-            		</div>
-            <% end %>
-          </div>
-      </div>
-  </div>
-<% unless @results.nil? %>
-  <p><%= @results.search_information.total_results %> resultado. <a data-toggle="collapse" href="#variantenan-panel">Klik akinan</a> <span class="glyphicon glyphicon-chevron-down"></span> pa wak e lista di variante ortográfiko usá den bo búskeda</p>
-  <% unless @results.items.nil? %>
-    <% @results.items.each do |item| %>
-        <div class="resultado">
-          <h4><a href="<%= item.link %>"><%= raw item.html_title %></a></h4>
-          <p><%= item.link %></p>
-          <p><%= raw item.html_snippet %></p>
-        </div>
-      <% end %>
-      <ul class="pagination">
-        <!-- <li class="disabled"><a href="#">«</a></li> -->
-        <% 0.upto(@results.search_information.total_results / 10) do |i| %>
-          <li class="<%= 'active' if @start == (i * 10) + 1 %>"><a href="/search?utf8=✓&q=<%= @q %>&start=<%= (i * 10) + 1 %>"><%= i + 1 %></a></li>
-          <% break if i >= 10 %>
-        <% end %>
-        <!-- <li><a href="/search?utf8=✓&q=<%= @q %>&start=<%= @start + 10 %>">»</a></li> -->
-      </ul>
-    <% end %>
-  <% end %>
+  <%= render 'variante' %>
+  <%= render 'resultado' %>
 </div>
