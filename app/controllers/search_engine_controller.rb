@@ -19,6 +19,9 @@ class SearchEngineController < ActionController::Base
     search = Google::Apis::CustomsearchV1
     search_client = search::CustomsearchService.new
     search_client.key = ENV["GOOGLE_SEARCH_CLIENT_KEY"]
-    @results = search_client.list_cses(@q_with_variants, {cx: ENV["GOOGLE_SEARCH_CLIENT_CX"], start: @start})
+    @results = search_client.list_cses(@q_with_variants, {
+      cx: ENV["GOOGLE_SEARCH_CLIENT_CX"],
+      start: @start
+    })
   end
 end
