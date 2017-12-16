@@ -81,29 +81,27 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
 
-# for devise
-config.action_mailer.default_url_options = { protocol: 'https', host: 'YOURHOSTNAME' }
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  address: 'YOURMAILSERVER',
-  enable_starttls_auto: true,
-  password: 'YOURPASSWORD',
-  user_name: 'YOURUSERNAME'
-}
-
-end
+    # for devise
+    config.action_mailer.default_url_options = { protocol: 'https', host: 'YOURHOSTNAME' }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: 'YOURMAILSERVER',
+      enable_starttls_auto: true,
+      password: 'YOURPASSWORD',
+      user_name: 'YOURUSERNAME'
+    }
+  end
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-# for devise
-config.action_mailer.default_url_options = { protocol: 'https', host: 'YOURHOSTNAME' }
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  address: 'YOURMAILSERVER',
-  enable_starttls_auto: true,
-  password: 'YOURPASSWORD',
-  user_name: 'YOURUSERNAME'
-}
-
+  # for devise
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'YOURHOSTNAME' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'YOURMAILSERVER',
+    enable_starttls_auto: true,
+    password: 'YOURPASSWORD',
+    user_name: 'YOURUSERNAME'
+  }
 end
