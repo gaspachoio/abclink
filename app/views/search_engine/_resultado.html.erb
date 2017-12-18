@@ -1,12 +1,14 @@
 <% unless @search_data.nil? %>
-  <div class="col-md-6">
+  <div class="col-md-8">
     <p><%= @search_data[:results].search_information.total_results %> resultado</p>
     <% unless @search_data[:results].items.nil? %>
         <% @search_data[:results].items.each do |item| %>
           <div class="resultado">
-            <h4><a href="<%= item.link %>"><%= raw item.html_title %></a></h4>
+            <h4><a href="<%= item.link %>"><%= raw item.title %></a></h4>
             <p><%= item.link %></p>
-            <p><%= raw item.html_snippet %></p>
+            <p>
+              <%= bold_search_words(item.snippet, @search_data[:words_with_variants].flatten) %>
+            </p>
           </div>
         <% end %>
         <ul class="pagination">

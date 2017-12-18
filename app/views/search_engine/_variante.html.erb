@@ -5,26 +5,18 @@
           <table class="table table-hover" id="dev-table">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Variante</th>
+                <th>Variante pa palabra</th>
               </tr>
             </thead>
               <tbody>
                 <% @search_data[:words_with_variants].each do |word| %>
-                  <% word.each do |variant| %>
-                    <tr>
-                      <td></td>
-                      <td><%= variant %></td>
-                    </tr>
-                  <% end %>
                   <tr>
-                    <td></td>
-                    <td></td>
+                    <td><%= word.join('; ') %></td>
                   </tr>
                 <% end %>
               </tbody>
             </table>
         </div>
-        <p>E lista aki ta posibel danki na <a href="https://palabra.papiamentu.info">Banko di Palabra<a/></p>
+        <p>E lista aki ta posibel danki na <a href="https://palabra.papiamentu.info">Banko di Palabra</a></p>
     </div>
 <% end %>
