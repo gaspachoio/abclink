@@ -33,6 +33,7 @@ gem 'uglifier'
 gem 'google-api-client'
 gem 'dotenv-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'httparty'
 
 group :development do
   gem 'yaml_db'
@@ -44,4 +45,5 @@ group :development do
   gem 'bundler'
   gem 'rspec'
   gem 'listen'
+  gem 'byebug'
 end

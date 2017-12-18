@@ -1,34 +1,30 @@
-<div id="variantenan-panel" class="collapse filter-panel text-left">
-    <div class="panel panel-default">
-        <div class="panel-body">
-          <% @words.each do |word| %>
-            <div class="col-md-4 col-md-offset-1">
-                  <div class="panel panel-primary">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Palabra: <%= word %></h3>
-                    </div>
-                    <table class="table table-hover" id="dev-table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Leksema</th>
-                          <th>Ortografia</th>
-                        </tr>
-                      </thead>
-                        <tbody>
-                          <% variants = Variant.find_by(lexeme: word).nil? ? [] : Variant.find_by(lexeme: word).word.variants %>
-                          <% variants.each do |variant| %>
-                            <tr>
-                              <td><%= variant.id %></td>
-                              <td><%= variant.lexeme %></td>
-                              <td><%= variant.orthographic_type %></td>
-                           </tr>
-                          <% end %>
-                        </tbody>
-                      </table>
-                  </div>
-              </div>
-          <% end %>
+<% if !@search_data.nil? %>
+  <div class="col-md-4">
+        <p>Lista di variante ortográfiko usá den bo búskeda</p>
+        <div class="panel panel-primary">
+          <table class="table table-hover" id="dev-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Variante</th>
+              </tr>
+            </thead>
+              <tbody>
+                <% @search_data[:words_with_variants].each do |word| %>
+                  <% word.each do |variant| %>
+                    <tr>
+                      <td></td>
+                      <td><%= variant %></td>
+                    </tr>
+                  <% end %>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
         </div>
+        <p></p>
     </div>
-</div>
+<% end %>
