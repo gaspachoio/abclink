@@ -9,7 +9,7 @@ class SearchService < BaseService
     # and words_with_variants to search_data
     search_data.merge!(PapiamentuVariantsService.new.call(query))
 
-    search_data[:query_with_variants] += options
+    search_data[:query_with_variants] += " #{options}"
 
     search = Google::Apis::CustomsearchV1
     search_client = search::CustomsearchService.new

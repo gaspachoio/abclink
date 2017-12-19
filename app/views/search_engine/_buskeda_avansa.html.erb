@@ -2,14 +2,9 @@
   <div id="filter-panel" class="collapse filter-panel text-left">
       <div class="panel panel-default">
           <div class="panel-body">
-
               <div class="form-group">
-                  <label class="filter-col" style="margin-right:0;" for="pref-search"><span data-toggle="tooltip" data-placement="top" title="E kódigo aki bou su ophetivo ta pa buska informashon únikamente na Papiamentu. E kódigo aki a wòrdu traha a base di e instrukshonnan di Google pa traha un búskeda avansá. E kódigo aki ta indiká pa buska kualke informashon, teksto òf kontenido kaminda tin algun di e palabra 'esaki', 'aki' òf 'esei'. Esakinan ta hopi popular den kualke teksto na Papiamentu. Si bo ke traha bo búskeda na kualke idioma, djis eliminá e kódigo promé ku klik riba e boton 'Buska'." class="glyphicon glyphicon-info-sign"></span> Buska informashon únikamente na Papiamentu:</label>
-                  <input value="<%= @unikamente_pap %>" name="unikamente_pap" type="text" class="form-control input-sm" id="pref-search">
-              </div><!-- form group [search] -->
-              <div class="form-group">
-                  <label class="filter-col" style="margin-right:0;" for="pref-search"><span data-toggle="tooltip" data-placement="top" title="E kódigo aki bou su ophetivo ta pa eliminá for di nos resultadonan kualke teksto na Spaño. E kódigo aki a wòrdu traha a base di e instrukshonnan di Google pa traha un búskeda avansá. E kódigo aki ta indiká pa saka for di nos resultadonan kualke informashon, teksto òf kontenido kaminda tin algun di e palabra 'la', 'las' òf 'los'. Esakinan ta hopi karakterístiko di e tekstonan na Spaño. " class="glyphicon glyphicon-info-sign"></span> Eliminá informashon na Spaño:</label>
-                  <input value="<%= @no_spano %>" name="no_spano" type="text" class="form-control input-sm" id="pref-search">
+                  <label class="filter-col" style="margin-right:0;" for="pref-search"><span data-toggle="tooltip" data-placement="top" title="E kódigo aki bou su ophetivo ta pa eliminá for di nos resultadonan kualke teksto na otro idioma. E kódigo aki a wòrdu traha a base di e instrukshonnan di Google pa traha un búskeda avansá. E kódigo aki ta indiká pa saka for di nos resultadonan kualke informashon, teksto òf kontenido kaminda tin algun di e palabra 'la', 'las' òf 'los'. Esakinan ta hopi karakterístiko di e tekstonan na otro idioma. " class="glyphicon glyphicon-info-sign"></span> Eliminá resultado na otro idioma:</label>
+                  <input value="<%= @elimina_otro_idioma %>" name="elimina_otro_idioma" type="text" class="form-control input-sm" id="pref-search">
               </div><!-- form group [search] -->
           </div>
       </div>
