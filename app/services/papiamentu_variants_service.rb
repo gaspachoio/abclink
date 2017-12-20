@@ -22,11 +22,12 @@ class PapiamentuVariantsService < BaseService
   def variants_for(word)
     variants = [word]
 
-    response = HTTParty.get("#{API_PATH}/#{word}")
+    uri = URI.parse(URI.escape "#{API_PATH}/#{word}")
+    response = HTTParty.get(uri)
     data = JSON.parse response.body
 
     return variants if data['variants'].nil?
-    
+
     data['variants'].each do |variant|
       variants << variant['lemma'] unless variants.include? variant['lemma']
     end
