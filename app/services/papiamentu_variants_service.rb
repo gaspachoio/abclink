@@ -4,14 +4,16 @@ class PapiamentuVariantsService < BaseService
   def call(query)
     words = query.split
 
-    query_with_variants = ''
+    query_with_variants = []
     words_with_variants = []
 
     words.each do |word|
       variants = variants_for(word)
-      query_with_variants += "[#{variants.join(' OR ')}]"
+      query_with_variants << "(#{variants.join(' OR ')})"
       words_with_variants << variants
     end
+
+    query_with_variants = query_with_variants.join(' AND ')
 
     {
       query_with_variants: query_with_variants,

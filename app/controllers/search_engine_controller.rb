@@ -3,7 +3,7 @@ class SearchEngineController < ActionController::Base
 
   def search
     @q = params[:q].nil? ? '' : params[:q]
-    @elimina_otro_idioma = params[:elimina_otro_idioma].nil? ? '[esaki OR esei OR aki] -la -los -las' : params[:elimina_otro_idioma]
+    @elimina_otro_idioma = params[:elimina_otro_idioma].nil? ? 'AND (esaki OR esei OR aki) -la -los -las' : params[:elimina_otro_idioma]
     @search_data = nil
 
     return if @q.empty?
