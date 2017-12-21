@@ -1,0 +1,25 @@
+<div class="col-md-12" style="margin-top: 15px;">
+  <div class="col-md-6">
+    <h2>Teksto original</h2>
+    <em>máksimo 200 palabra</em>
+    <%= form_tag("/translate", method: "get") do %>
+      <div class="form-group">
+        <div class="input-group">
+          <%= text_area_tag(:teksto, @teksto, size: "60x15", maxlength: 140) %>
+        </div>
+      </div>
+
+      <%= select_tag(:target, options_for_select([['Papiamentu => Papiamento', 'aw'],['Papiamento => Papiamentu', 'cw']], @target)) %>
+      <%= submit_tag("Tradusí") %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <h2>Teksto tradusí</h2>
+    <div class="translate-result">
+      <%= @resultado %>
+    </div>
+    <% if @resultado != '' %>
+      <em>* E palabra aki no a wòrdu tradusí korektamente </em>
+    <% end %>
+  </div>
+</div>

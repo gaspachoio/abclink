@@ -85,10 +85,18 @@ width:100%;
 }
 
 .resultado p {
-  text-align: justify;  
+  text-align: justify;
   margin-bottom: 2px;
 }
 
 .resultado h4 {
   margin-bottom: 0px;
+}
+
+.translate-result {
+  border: 1px solid whitesmoke;
+	margin: 0;
+	background: whitesmoke;
+	margin-bottom: 8px;
+  min-height: 310px;
 }
