@@ -8,7 +8,7 @@ require 'google/apis/customsearch_v1'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Bankortografiko
+module Abclink
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     # Settings in config/environments/* take precedence over those specified here.

@@ -1,11 +1,11 @@
 development:
   adapter: mysql2
-  database: bankortografiko_dev
-  username: bankortografiko
-  password: bankortografiko444
+  database: abclink_dev
+  username: abclink
+  password: abclink444
 
 production:
   adapter: mysql2
-  database: bankortografiko_prod
-  username: bankortografiko
-  password: bankortografiko444
+  database: abclink_prod
+  username: abclink
+  password: abclink444
