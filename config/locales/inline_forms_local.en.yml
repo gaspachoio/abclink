@@ -1,7 +1,7 @@
 en:
   inline_forms:
     general:
-      application_title: bankortografiko
+      application_title: ABClink
     devise:
-      title_for_devise: bankortografiko
-      welcome: Welcome to bankortografiko!
+      title_for_devise: ABClink
+      welcome: Welcome to ABClink!

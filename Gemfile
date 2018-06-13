@@ -33,6 +33,7 @@ gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.0.0'
 gem 'octicons_helper'
 gem 'httparty'
+gem 'bootstrap-glyphicons'
 
 group :development do
   gem 'yaml_db'

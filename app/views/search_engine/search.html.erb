@@ -1,8 +1,12 @@
-<div class="col-md-6 col-md-offset-3" style="margin-top: 8%;">
-  <div class="row">
-    <div id="logo" class="text-center">
-      <h1>ABClink</h1><p>Búskeda inteligente di informashon na Papiamentu</p>
+<div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <%= image_tag("abclink-logo", class: 'img-fluid') %>
     </div>
+  </div>
+  <p>Búskeda inteligente di informashon na Papiamentu</p>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
     <%= form_tag("/search", method: "get") do %>
       <div class="form-group">
         <div class="input-group">
@@ -14,12 +18,8 @@
           </span>
         </div>
       </div>
-      <%= render 'buskeda_avansa' %>
     <% end %>
   </div>
 </div>
 
-<div class="col-md-12" style="margin-top: 4%;">
-  <%= render 'variante' %>
-  <%= render 'resultado' %>
-</div>
+<%= render 'search_engine/results' %>

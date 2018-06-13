@@ -1,0 +1,23 @@
+<% unless @search_data.nil?  %>
+  <div class="container search-results">
+    <hgroup class="mb20">
+  		<h2 class="lead text-center"><strong class="text-danger"><%= @search_data[:results].search_information.total_results %></strong> <%= 'result'.pluralize(@search_data[:results].search_information.total_results) %> were found for the search for <strong class="text-danger"><%= params[:q] %></strong></h2>
+  	</hgroup>
+    <section class="col-xs-12 col-sm-6 col-md-12">
+    <% unless @search_data[:results].items.nil? %>
+      <div class='col-xs-3'>
+        <% @search_data[:results].items.each do |item| %>
+          <%= render 'search_engine/result_item', :item => item %>
+        <% end %>
+      </div>
+    <% end %>
+  	</section>
+    <ul class="pagination">
+      <!-- <li class="disabled"><a href="#">«</a></li> -->
+      <% 0.upto(@search_data[:results].search_information.total_results / 10) do |i| %>
+        <li class="<%= 'active' if @search_data[:start] == (i * 10) + 1 %>"><a href="/search?utf8=✓&q=<%= @q %>&elimina_otro_idioma=<%= @elimina_otro_idioma %>&start=<%= (i * 10) + 1 %>"><%= i + 1 %></a></li>
+        <% break if i >= 10 %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<article class="search-result row text-left">
+  <div class="col-xs-12 col-sm-12 col-md-6 excerpet">
+    <h3><a href="<%= item.link %>" title="<%= raw item.title %>"><%= raw item.title %></a></h3>
+    <p><%= item.link %></p>
+    <p class="text-justify"><%= bold_search_words(item.snippet, @search_data[:words_with_variants].flatten).truncate(250) %></p>
+  </div>
+  <span class="clearfix borda"></span>
+</article>

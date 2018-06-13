@@ -1,9 +1,9 @@
 module ApplicationHelper
   def application_name
-    'bankortografiko'
+    'ABClink'
   end
   def application_title
-    'bankortografiko'
+    'ABClink'
   end
 
   def bold_search_words(snippet, words)
