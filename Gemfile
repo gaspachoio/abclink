@@ -30,7 +30,7 @@ gem 'therubyracer'
 gem 'uglifier'
 gem 'google-api-client'
 gem 'dotenv-rails'
-gem 'bootstrap', '~> 4.0.0'
+gem "bootstrap", ">= 4.1.2"
 gem 'octicons_helper'
 gem 'httparty'
 gem 'bootstrap-glyphicons'
